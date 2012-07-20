@@ -88,11 +88,11 @@ istgtcontrol: $(ISTGTCONTROL)
 	$(CC) $(LDFLAGS) -o $@ $(ISTGTCONTROL) $(LIBS)
 
 install: install-dirs
-	$(INSTALL) -m 0755 istgt $(DESTDIR)$(bindir)
-	$(INSTALL) -m 0755 istgtcontrol $(DESTDIR)$(bindir)
+	$(INSTALL) -m 0755 istgt $(DESTDIR)$(sbindir)
+	$(INSTALL) -m 0755 istgtcontrol $(DESTDIR)$(sbindir)
 
 install-dirs:
-	$(MKDIR_P) $(DESTDIR)$(bindir)
+	$(MKDIR_P) $(DESTDIR)$(sbindir)
 
 .PHONY: dist clean distclean depend
 dist: $(DISTFILES)
