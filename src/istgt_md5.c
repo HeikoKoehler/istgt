@@ -43,7 +43,7 @@ istgt_md5init(ISTGT_MD5CTX *md5ctx)
 {
 	if (md5ctx == NULL)
 		return -1;
-	md5_init(&md5ctx->state);
+	MD5_Init(&md5ctx->state);
 	return 0;
 }
 
@@ -52,7 +52,7 @@ istgt_md5final(void *md5, ISTGT_MD5CTX *md5ctx)
 {
 	if (md5ctx == NULL || md5 == NULL)
 		return -1;
-	md5_finish(&md5ctx->state, md5);
+	MD5_Final(md5, &md5ctx->state);
 	return 0;
 }
 
@@ -63,6 +63,6 @@ istgt_md5update(ISTGT_MD5CTX *md5ctx, const void *data, size_t len)
 		return -1;
 	if (data == NULL || len <= 0)
 		return 0;
-	md5_append(&md5ctx->state, (const md5_byte_t *)data, (int)len);
+	MD5_Update(&md5ctx->state, data, len);
 	return 0;
 }

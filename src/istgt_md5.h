@@ -35,7 +35,7 @@
 #define ISTGT_MD5DIGEST_LEN 16
 
 typedef struct istgt_md5ctx_t {
-	md5_state_t state;
+	struct md5 state;
 } ISTGT_MD5CTX;
 
 int istgt_md5init(ISTGT_MD5CTX *md5ctx);
