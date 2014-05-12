@@ -4,8 +4,8 @@ After=syslog.target network.target
 
 [Service]
 Type=forking
-PIDFile=/run/samba/smbd.pid
-ExecStart=%%SBINDIR%%/istgt -c %%SYSCONFDIR%%/istgt.conf
+PIDFile=/var/run/istgt.pid
+ExecStart=%%BINDIR%%/istgt -c %%SYSCONFDIR%%/istgt.conf
 Restart=on-abort
 ExecReload=%%BINDIR%%/kill -HUP $MAINPID
 LimitNOFILE=16384
